@@ -37,8 +37,8 @@ export async function registerName(registry, provider, name) {
   await window.ethereum.enable();
   const userProvider = new ethers.providers.Web3Provider(window.ethereum);
   const userNetwork = await userProvider.getNetwork();
-  if (userNetwork.chainId !== 80001)
-    throw new Error(`Please switch to Mumbai for signing`);
+  if (userNetwork.chainId !== 11155111)
+    throw new Error(`Please switch to Sepolia for signing`);
 
   const signer = userProvider.getSigner();
   const from = await signer.getAddress();
